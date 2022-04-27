@@ -12,7 +12,6 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function getSeason(date) {
-  // console.log(Object.prototype.toString.call(date));
   if (!date) return "Unable to determine the time of year!";
 
   const err = new Error("Invalid date!");
@@ -35,4 +34,4 @@ module.exports = {
   getSeason,
 };
 
-console.log(getSeason("677"));
+console.log(getSeason(new Date(2020, 3, 31)));
