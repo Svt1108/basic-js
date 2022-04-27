@@ -12,13 +12,22 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function getSeason(date) {
+  let k = [];
+  let i = 0;
   if (!date) return "Unable to determine the time of year!";
 
   const err = new Error("Invalid date!");
+  for (key in date) {
+    k[i] = key;
+    i++;
+  }
   if (
     !date.getUTCMonth ||
     Object.prototype.toString.call(date) !== "[object Date]" ||
-    typeof date !== "object"
+    typeof date !== "object" ||
+    typeof date == "string" ||
+    typeof date == "symbol" ||
+    k[0] == "toString"
   )
     throw err;
 
