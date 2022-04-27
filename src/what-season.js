@@ -17,12 +17,13 @@ function getSeason(date) {
   const err = new Error("Invalid date!");
   if (
     !date.getUTCMonth ||
-    Object.prototype.toString.call(date) !== "[object Date]"
+    Object.prototype.toString.call(date) !== "[object Date]" ||
+    typeof date !== "object"
   )
     throw err;
 
   let month = date.getUTCMonth();
-  // console.log(date.getMonth());
+  // console.log(typeof date);
 
   if (month == "11" || month == "0" || month == "1") return "winter";
   if (month == "2" || month == "3" || month == "4") return "spring";
